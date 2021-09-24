@@ -1,7 +1,7 @@
 package com.wangyu.dao.impl;
 
 import com.wangyu.dao.UserDao;
-import com.wangyu.domian.User;
+import com.wangyu.domain.User;
 
 import java.util.List;
 import java.util.Map;

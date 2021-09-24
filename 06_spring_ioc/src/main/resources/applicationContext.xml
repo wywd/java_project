@@ -40,11 +40,11 @@
         </property>
     </bean>
 
-    <bean id="user1" class="com.wangyu.domian.User">
+    <bean id="user1" class="com.wangyu.domain.User">
         <property name="name" value="tom"/>
         <property name="addr" value="北京"/>
     </bean>
-    <bean id="user2" class="com.wangyu.domian.User">
+    <bean id="user2" class="com.wangyu.domain.User">
         <property name="name" value="lucy"/>
         <property name="addr" value="天津"/>
     </bean>

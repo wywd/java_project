@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!--    配置目标对象-->
+    <bean id="target" class="com.wangyu.aop.Target"></bean>
+<!--    配置切面对象-->
+     <bean id="myAspect" class="com.wangyu.aop.MyAspect"></bean>
+<!--    配置织入，告诉spring框架，哪些方法（切点）需要进行哪些增强（前置、后置...）-->
+    <aop:config>
+<!--        声明切面-->
+        <aop:aspect ref="myAspect">
+<!--            抽取切点表达式-->
+            <aop:pointcut id="myPointCut" expression="execution(* com.wangyu.aop.*.*(..))"/>
+<!--            切面：切点+通知-->
+<!--            <aop:before method="before" pointcut="execution(public void com.wangyu.aop.Target.save())"/>-->
+<!--            <aop:before method="before" pointcut="execution(* com.wangyu.aop.*.*(..))"/>-->
+<!--            <aop:after-returning method="afterReturning" pointcut="execution(* com.wangyu.aop.*.*(..))"/>-->
+<!--            <aop:around method="around" pointcut="execution(* com.wangyu.aop.*.*(..))"/>-->
+<!--            <aop:after method="after" pointcut="execution(* com.wangyu.aop.*.*(..))"/>-->
+<!--            <aop:after-throwing method="afterThrowing" pointcut="execution(* com.wangyu.aop.*.*(..))"/>-->
+            <aop:around method="around" pointcut-ref="myPointCut"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
+

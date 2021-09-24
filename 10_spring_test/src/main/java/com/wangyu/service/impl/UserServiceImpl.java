@@ -5,6 +5,7 @@ import com.wangyu.dao.UserDao;
 import com.wangyu.domain.Role;
 import com.wangyu.domain.User;
 import com.wangyu.service.UserService;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.List;
 
@@ -57,5 +58,14 @@ public class UserServiceImpl implements UserService {
         userDao.delUserRoleRel(userId);
         // 2. 删除sys_user表对应user
         userDao.del(userId);
+    }
+
+    @Override
+    public User login(String username, String password) {
+        try {
+            return userDao.findByUsernameAndPassword(username, password);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 }

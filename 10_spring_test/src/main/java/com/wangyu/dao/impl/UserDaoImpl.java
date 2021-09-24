@@ -1,7 +1,9 @@
 package com.wangyu.dao.impl;
 
 import com.wangyu.dao.UserDao;
+import com.wangyu.domain.Role;
 import com.wangyu.domain.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -77,5 +79,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void del(Long userId) {
         jdbcTemplate.update("delete from sys_user where id=?", userId);
+    }
+
+    @Override
+    public User findByUsernameAndPassword(String username, String password) throws EmptyResultDataAccessException {
+        return jdbcTemplate.queryForObject("select * from sys_user where username=? and password=?",
+                new BeanPropertyRowMapper<>(User.class), username, password);
     }
 }

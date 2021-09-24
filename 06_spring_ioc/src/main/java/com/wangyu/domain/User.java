@@ -1,4 +1,4 @@
-package com.wangyu.domian;
+package com.wangyu.domain;
 
 /**
  * class User

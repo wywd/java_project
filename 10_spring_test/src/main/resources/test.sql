@@ -47,5 +47,5 @@ values (1,1),(1,2),(2,2),(2,3);
 
 use test;
 
-select * from sys_user_role ur, sys_role r where ur.roleId = r.id and ur.userId = 1;
+select * from `sys_user_role` ur, sys_role r where ur.roleId = r.id and ur.userId = 1;
 
