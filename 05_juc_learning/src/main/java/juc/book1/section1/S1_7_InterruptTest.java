@@ -32,10 +32,10 @@ public class S1_7_InterruptTest {
         // boolean interrupted() 方法检测当前线程是否被中断，是静态方法，会清除中断标志，
         // 该方法获取的是当前线程的中断标志而不是调用interrupted()方法的实例对象的中断标志
 
-        System.out.println("isInterrupted:" + thread.isInterrupted());
-        System.out.println("isInterrupted:" + Thread.interrupted());
-        System.out.println("isInterrupted:" + Thread.interrupted());
-        System.out.println("isInterrupted:" + thread.isInterrupted());
+        System.out.println("thread.isInterrupted():" + thread.isInterrupted());
+        System.out.println("Thread.interrupted():" + Thread.interrupted());
+        System.out.println("Thread.interrupted():" + Thread.interrupted());
+        System.out.println("thread.isInterrupted():" + thread.isInterrupted());
         thread.join();
     }
 }
